@@ -1,0 +1,443 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ───────────────── HERO ───────────────── */
+
+.hero {
+  padding-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ef6a53;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  max-width: 80ch;
+  color: var(--text-2);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* ───────────────── SEARCH ───────────────── */
+
+.searchWrap {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 48px;
+
+  padding-inline: 48px 18px;
+
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 18px;
+
+  color: var(--text-3);
+
+  font-size: 0.95rem;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.searchInput::placeholder {
+  color: var(--text-3);
+}
+
+.searchInput:focus {
+  outline: none;
+
+  border-color: rgba(139,92,246,0.45);
+
+  background: rgba(255,255,255,0.05);
+
+  box-shadow:
+    0 0 0 4px rgba(139,92,246,0.08);
+}
+
+[data-theme="light"] .searchInput {
+  background: rgba(255,255,255,0.95);
+
+  border: 1px solid rgba(139,92,246,0.22);
+
+  color: var(--text-3);
+
+  box-shadow:
+    0 2px 10px rgba(139,92,246,0.04);
+}
+
+[data-theme="light"] .searchInput::placeholder {
+  color: var(--text-3);
+}
+
+[data-theme="light"] .searchInput:focus {
+  border-color: rgba(139,92,246,0.45);
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(139,92,246,0.08);
+}
+
+
+/* ───────────────── STATS GRID ───────────────── */
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  position: relative;
+
+  min-height: 90px;
+
+  padding: 1rem;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(139,92,246,0.12),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.015)
+    );
+
+  border: 1px solid rgba(139,92,246,0.14);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  backdrop-filter: blur(14px);
+}
+
+.statValue {
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+
+  background: linear-gradient(
+    180deg,
+    #c084fc 0%,
+    #8b5cf6 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  margin-top: 0.45rem;
+
+  font-size: 0.62rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: #8f8aa8;
+
+  font-family: var(--font-mono);
+}
+
+/* ───────────────── TABS ───────────────── */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.tab {
+  padding: 6px var(--space-4);
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: all var(--dur-fast);
+}
+
+.tab:hover {
+  border-color: var(--text-3);
+  color: var(--text);
+  background: var(--bg-2);
+}
+
+.tab[data-active="true"] {
+  background: var(--accent) !important;
+  color: var(--accent-fg) !important;
+  border-color: var(--accent) !important;
+}
+
+/* ───────────────── RESULT COUNT ───────────────── */
+
+.resultCount {
+  margin-bottom: 2rem;
+
+  color: var(--text-3);
+
+  font-size: 0.92rem;
+}
+
+/* ───────────────── EMPTY ───────────────── */
+
+.empty {
+  padding: 4rem 0;
+
+  text-align: center;
+
+  color: var(--text-3);
+
+  font-size: 1rem;
+}
+
+/* ───────────────── GRID ───────────────── */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+
+  gap: 2rem;
+
+  align-items: stretch;
+}
+
+.grid li {
+  list-style: none;
+}
+
+/* ───────────────── LARGE TABLETS ───────────────── */
+
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+/* ───────────────── TABLETS ───────────────── */
+
+@media (max-width: 768px) {
+
+  .hero {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .searchWrap {
+    margin-bottom: 1.5rem;
+  }
+
+  .searchInput {
+    height: 48px;
+
+    border-radius: 16px;
+
+    font-size: 0.88rem;
+
+    padding-inline: 44px 14px;
+  }
+
+  .searchIcon {
+    left: 15px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.8rem;
+  }
+
+  .statCard {
+    min-height: 82px;
+
+    padding: 0.85rem;
+
+    border-radius: 18px;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  .tabs {
+    gap: 0.8rem;
+  }
+
+  .tab {
+    height: 40px;
+
+    font-size: 0.82rem;
+
+    padding-inline: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+}
+
+/* ───────────────── MOBILE ───────────────── */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding-top: 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+
+    line-height: 1.05;
+  }
+
+  .subtitle {
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+  }
+
+  .searchWrap {
+    margin-bottom: 1.2rem;
+  }
+
+  .searchInput {
+    height: 44px;
+
+    border-radius: 14px;
+
+    font-size: 0.85rem;
+
+    padding-inline: 40px 12px;
+  }
+
+  .searchIcon {
+    left: 13px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.7rem;
+  }
+
+  .statCard {
+    min-height: 76px;
+
+    padding: 0.8rem;
+
+    border-radius: 16px;
+  }
+
+  .statValue {
+    font-size: 2.2rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+  }
+
+  .tabs {
+    gap: 0.7rem;
+  }
+
+  .tab {
+    height: 38px;
+
+    padding-inline: 0.9rem;
+
+    font-size: 0.76rem;
+  }
+
+  .resultCount {
+    font-size: 0.82rem;
+  }
+
+  .grid {
+    gap: 1.2rem;
+  }
+}

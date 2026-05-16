@@ -1,0 +1,404 @@
+/* src/app/page.module.css */
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+  min-height: calc(100dvh - var(--header-h));
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-14);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Purple ambient glow background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 70% at 80% 40%,
+      rgba(124, 58, 237, 0.18) 0%,
+      rgba(139, 92, 246, 0.08) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 20% 70%,
+      rgba(76, 29, 149, 0.12) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+/* Subtle noise texture */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Hero Layout ───────────────────────────────────── */
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-16);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* ── Hero Content ──────────────────────────────────── */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-bottom: var(--space-8);
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .heroContent {
+    align-items: center;
+  }
+}
+
+.intro {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent-2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroName {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    var(--violet) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  margin: 0;
+}
+
+.heroRole {
+  font-size: clamp(1rem, 1vw, 1.2rem);
+  color: var(--text-3);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.roleAccent {
+  color: var(--accent-2);
+  font-weight: 700;
+  margin-inline: 2px;
+}
+
+.heroBio {
+  max-width: 65ch;
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .heroBio {
+    margin-inline: auto;
+  }
+}
+
+/* ── CTA Buttons ───────────────────────────────────── */
+.heroCTA {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .heroCTA {
+    justify-content: center;
+  }
+}
+
+/* ── Social Icons ──────────────────────────────────── */
+.heroSocial {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .heroSocial {
+    justify-content: center;
+  }
+}
+
+.socialIcon {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: var(--r-md);
+
+  color: var(--text-3);
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  transition:
+    color var(--dur-fast),
+    border-color var(--dur-fast),
+    background var(--dur-fast),
+    box-shadow var(--dur-fast);
+}
+
+.socialIcon:hover {
+  color: var(--accent-2);
+  border-color: var(--accent);
+
+  background: rgba(124, 58, 237, 0.1);
+
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.2);
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: 11px var(--space-6);
+
+  background: var(--accent);
+  color: var(--accent-fg);
+
+  border-radius: var(--r-md);
+
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  transition:
+    background var(--dur-fast),
+    transform var(--dur-fast),
+    box-shadow var(--dur-fast);
+
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+}
+
+.btnPrimary:hover {
+  background: var(--accent-2);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.5);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: 11px var(--space-6);
+
+  background: transparent;
+  color: var(--text);
+
+  border-radius: var(--r-md);
+
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  border: 1.5px solid var(--border);
+
+  transition:
+    border-color var(--dur-fast),
+    background var(--dur-fast),
+    color var(--dur-fast);
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent);
+
+  background: rgba(124, 58, 237, 0.08);
+
+  color: var(--accent-2);
+}
+
+/* ── Modern Floating Hero Image ────────────────────── */
+
+.heroImageWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  min-height: 760px;
+  height: 100%;
+
+  isolation: isolate;
+}
+
+@media (max-width: 900px) {
+  .heroImageWrap {
+    min-height: 420px;
+    order: -1;
+  }
+}
+
+/* Soft background glow */
+.imageGlowRing {
+  position: absolute;
+
+  /* Move glow lower */
+  bottom: -8%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124,58,237,0.22) 0%,
+      rgba(109,40,217,0.10) 38%,
+      transparent 72%
+    );
+
+  filter: blur(110px);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Main Hero Image */
+.heroImg {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  mix-blend-mode: normal;
+
+  filter:
+    drop-shadow(0 12px 35px rgba(0,0,0,0.45));
+}
+
+
+/* ── Section Header ────────────────────────────────── */
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: var(--space-8);
+}
+
+.sectionHeader h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  color: var(--accent-2);
+
+  transition: gap var(--dur-fast);
+}
+
+.viewAll:hover {
+  gap: var(--space-3);
+}
+
+/* ── Project Grid ──────────────────────────────────── */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ── CTA Section ───────────────────────────────────── */
+.featured {
+  background: var(--bg);
+}
+
+.cta {
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse 50% 80% at 50% 50%,
+    rgba(124, 58, 237, 0.08),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.ctaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  gap: var(--space-4);
+
+  max-width: 600px;
+  margin-inline: auto;
+
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBox h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.ctaBox p {
+  color: var(--text-2);
+  font-size: 1.05rem;
+}

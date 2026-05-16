@@ -1,0 +1,94 @@
+/* src/app/skills/skills.module.css */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.pageTitle { font-size: clamp(2rem, 6vw, 3.5rem); }
+
+.intro {
+  margin-top: var(--space-4);
+  color: var(--text-2);
+  max-width: 50ch;
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--space-6);
+}
+
+.card:hover { border-color: var(--accent); }
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-3);
+  border-radius: var(--r-md);
+  color: var(--accent);
+}
+
+.category {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.skillList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.skill { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.skillTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillName { font-size: 0.875rem; font-weight: 500; }
+
+.skillPct {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.bar {
+  height: 6px;
+  background: var(--bg-3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 0.8s var(--ease-out);
+}
