@@ -118,7 +118,7 @@
 }
 
 .mobileNavOpen {
-  max-height: 400px;
+  max-height: 440px;
 }
 
 .mobileLink {
@@ -203,11 +203,9 @@
 
   /* Mobile menu */
   .mobileNav {
-    background: rgba(10,10,14,0.96);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
 
     backdrop-filter: blur(18px);
-
-    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
   .mobileLink {
